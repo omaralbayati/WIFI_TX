@@ -40,29 +40,7 @@ unsigned char li;
 char PredefinedPacket[] = {0x01, 0x08, 0xC4, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 int main(void) {
-//    unsigned char tt = 0;
-//    unsigned char i;
-//    initSPI();
-//    remapSpiIO();
-//
-//    while (1) {
-//        //spi_write(tt);
-//        delay();
-//        _LATB7 = 0X00;
-//        // spi_write_short(0x22, 0x59);
-//        // spi_write_long(0x222, 0x45);
-//        tt = spi_read_long(0X222);
-//        delay();
-//        delay();
-//        _LATB7 = 0XFF;
-//        spi_write(tt);
-//        for (i = 0; i < 32; i++)
-//            delay();
-//
-//
-//
-//    }
-    unsigned char adress=0x01,adress1=0x00;
+ unsigned char adress=0x01,adress1=0x00;
  unsigned char data=0;
  unsigned char v,p1,p2;
  initSPI();
@@ -291,41 +269,6 @@ void spi_write_long(unsigned short address, unsigned char data) {
     spi_write(d);
     Nop();
 }
-
-//void spi_write_long_read(unsigned short address, unsigned char data) {
-//     spi write used in long address read
-//
-//    unsigned char a;
-//    unsigned char d;
-//    address = address << 4;
-//    Nop();
-//    address = address & 0xFFE0;
-//    Nop();
-//    address = address | 0x8000;
-//    Nop();
-//    a = address >> 8;
-//    spi_write(a);
-//    Nop();
-//    a = (unsigned char) address;
-//    spi_write(a);
-//    Nop();
-//    d = (unsigned char) data;
-//    spi_write(d);
-//    Nop();
-//    
-//
-//}
-
-
-
-
-
-
-//void _ISR _AltSPI2Interrupt (void){
-//    
-//    
-//}
-
 /*Minco*/
 void int_interrupt(void) {
     IFS1bits.INT1IF = 0; //Clear the Interrupt Flag
@@ -567,11 +510,6 @@ void SetChannel(unsigned char channel)
 				//Reset RF State machine
 				//no delay loop is present after performing RF State machine reset
 }
-
-
-
-
-
 void delay1(unsigned short p1)
 { unsigned short p2;
   for (p2=1;p2<p1;p2++ )
@@ -586,7 +524,6 @@ void delay1(unsigned short p1)
   Nop();Nop();
   Nop();Nop();
 
-  
   }
 
 }
